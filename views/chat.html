@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>Chat-ChitChat</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link href="./NS_Client/ui/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/css/metro.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/css/style.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/css/style_responsive.css" rel="stylesheet" />
+	<link href="./NS_Client/ui/css/style_default.css" rel="stylesheet" id="style_color" />
+	<link rel="stylesheet" type="text/css" href="./NS_Client/ui/chosen-bootstrap/chosen/chosen.css" />
+	<link rel="stylesheet" type="text/css" href="./NS_Client/ui/uniform/css/uniform.default.css" />
+	<link rel="stylesheet" type="text/css" href="./NS_Client/ui/css/chat.css">
+	<link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+	<!-- BEGIN HEADER -->
+	<div class="header navbar navbar-inverse navbar-fixed-top">
+		<!-- BEGIN TOP NAVIGATION BAR -->
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<!-- BEGIN LOGO -->
+				<a class="brand" href="./index.html">
+				<img src="./NS_Client/ui/img/logo.png" alt="logo" />
+				</a>
+				<!-- END LOGO -->
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+				<img src="./NS_Client/img/menu-toggler.png" alt="" />
+				</a>          
+				<!-- END RESPONSIVE MENU TOGGLER -->				
+				<!-- BEGIN TOP NAVIGATION MENU -->					
+				<ul class="nav pull-right">
+					
+										
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+					<li class="dropdown user">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img alt="" src="./NS_Client/ui/img/avatar1_small.jpg" />
+						<span class="username"><%= userId %></span>
+						<i class="icon-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><i class="icon-key"></i> Log Out</a></li>
+						</ul>
+					</li>
+					<!-- END USER LOGIN DROPDOWN -->
+				</ul>
+				<!-- END TOP NAVIGATION MENU -->	
+			</div>
+		</div>
+		<!-- END TOP NAVIGATION BAR -->
+	</div>
+	<!-- END HEADER -->
+	<!-- BEGIN CONTAINER -->	
+	<div class="page-container row-fluid">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar nav-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->        	
+			<ul id="online-users">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search">
+						<div class="input-box">
+							<a href="javascript:;" class="remove"></a>
+							<input type="text" placeholder="Search..." />				
+							<input type="button" class="submit" value=" " />
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+							
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+		<!-- END SIDEBAR -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<div id="portlet-config" class="modal hide">
+				<div class="modal-header">
+					<button data-dismiss="modal" class="close" type="button"></button>
+					<h3>portlet Settings</h3>
+				</div>
+				<div class="modal-body">
+					<p>Here will be a configuration form</p>
+				</div>
+			</div>
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			
+			<!-- BEGIN INLINE TABS PORTLET-->
+									<div class="portlet box green">
+										<div class="portlet-title">
+											<h4><i class="icon-reorder"></i>Conversations</h4>
+																						
+											<div class="actions">
+												<a href="#group-chat-modal" role="button" id="init-group-start" class="btn grey" data-toggle="modal" ><i class="icon-plus"></i> Start Group Chat</a>
+											</div>
+
+										</div>
+										<div class="portlet-body">
+											<div class="row-fluid ">
+												<div class="span12">
+													<!--BEGIN TABS-->
+													<div class="tabbable tabbable-custom">
+														<ul class="nav nav-tabs">
+															<li class="active" id="shout">
+															<a href="#shout-box" data-toggle="tab"><u>Shout Box</u>
+															</a></li>
+																									
+																		
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane active" id="shout-box">
+																<div class="chat-box scroller" data-mcs-theme="dark" data-mcs-live="on" style="overflow:auto; height:400px;width:90%; border: 1px #35fd0d solid;">
+
+																</div>
+																<br/>
+																<div>
+																<div class="span9"><textarea class="span12" id="shout-box-text"  rows="2"></textarea></div>
+																<div  class="span3">
+																	<p>												
+																		<a class="btn big green" id="shout-box-send-message">Send
+																	   	   <i class="m-icon-big-swapup m-icon-white"></i>
+																	    </a>
+																	</p>
+																</div>
+																</div>
+
+															</div>
+
+															
+															
+															
+														</div>
+													</div>
+													<!--END TABS-->
+												</div>
+												
+										
+									</div>
+									<!-- END INLINE TABS PORTLET-->
+									
+							</div>
+		<!-- END PAGE -->	 	
+	</div>
+	<!-- END CONTAINER -->
+	<!-- BEGIN COPYRIGHT -->
+  <div class="copyright">
+    2015 &copy; ChitChat. Say Everything.
+  </div>
+
+  <!-- END COPYRIGHT -->
+	<!-- BEGIN JAVASCRIPTS -->
+	<!-- Load javascripts at bottom, this will reduce page load time -->
+		<script src="./NS_Client/jquery-1.11.2.min.js"></script>
+
+		
+	<script src="./NS_Client/ui/breakpoints/breakpoints.js"></script>			
+	<script src="./NS_Client/ui/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>	
+	<script src="./NS_Client/ui/bootstrap/js/bootstrap.min.js"></script>
+	<script src="./NS_Client/ui/js/jquery.blockui.js"></script>
+	<script src="./NS_Client/ui/js/jquery.cookie.js"></script>
+	<script src="./NS_Client/ui/fullcalendar/fullcalendar/fullcalendar.min.js"></script>	
+	<script type="text/javascript" src="./NS_Client/ui/uniform/jquery.uniform.min.js"></script>
+	<script type="text/javascript" src="./NS_Client/ui/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+	<!-- ie8 fixes -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/excanvas.js"></script>
+	<script src="assets/js/respond.js"></script>
+	<![endif]-->
+	<script src="./NS_Client/ui/js/app.js"></script>
+
+
+			<script src="./NS_Client/js/util.js"></script>
+			<script src="./NS_Client/js/debug.js"></script>
+			<script src="./NS_Client/js/jsbn.js"></script>
+			<script src="./NS_Client/js/oids.js"></script>
+			<script src="./NS_Client/js/asn1.js"></script>
+			<script src="./NS_Client/js/sha1.js"></script>
+			<script src="./NS_Client/js/sha256.js"></script>
+			<script src="./NS_Client/js/md5.js"></script>
+			<script src="./NS_Client/js/md.js"></script> 
+			<script src="./NS_Client/js/prng.js"></script>
+			<script src="./NS_Client/js/random.js"></script>
+			<script src="./NS_Client/js/jsbn.js"></script> 
+			<script src="./NS_Client/js/pkcs1.js"></script>
+			<script src="./NS_Client/js/rsa.js"></script>
+			<script src="./NS_Client/js/cipherModes.js"></script>
+			<script src="./NS_Client/js/cipher.js"></script>
+			<script src="./NS_Client/js/aes.js"></script>
+			<script src="./NS_Client/js/des.js"></script>
+			
+
+			<script src="./NS_Client/js/rc2.js"></script>
+			<script src="./NS_Client/js/pbe.js"></script>
+			<script src="./NS_Client/js/pem.js"></script>
+			<script src="./NS_Client/js/hmac.js"></script>
+			<script src="./NS_Client/js/pbkdf2.js"></script>
+			<script src="./NS_Client/js/pkcs7asn1.js"></script>
+			<script src="./NS_Client/js/pkcs12.js"></script>
+			<script src="./NS_Client/js/pss.js"></script>
+			<script src="./NS_Client/js/mgf1.js"></script>
+			<script src="./NS_Client/js/mgf.js"></script>
+			<script src="./NS_Client/js/x509.js"></script>
+			<script src="./NS_Client/js/pki.js"></script>
+
+			<script src="./NS_Client/socket.io-1.2.1.js"></script>
+			<script src="./NS_Client/json2.js"></script>
+
+			<script src="./NS_Client/jstorage.js"></script>
+			<script type="text/javascript" src="./NS_Client/key-management.js"></script>
+			<script type="text/javascript" src="./NS_Client/AESEncryption.js"></script>
+			<script type="text/javascript" src="./NS_Client/RSAEncryption.js"></script>
+
+			<script type="text/javascript" src="./NS_Client/index.js"></script>
+			<script type="text/javascript" src="./NS_Client/hashing.js"></script>
+
+			<script src="./NS_Client/public-chat.js"></script>
+
+
+
+	<script>
+		$(function() {			
+			// initiate layout and plugins
+
+			$("#init-group-start").click(initGroupChat);
+			$("#start-current-group-chat").click(startGroupChat);
+			$("#cancel-current-group-chat").click(cancelGroupChat);
+			App.setPage('calendar');
+			App.init();
+			
+		});
+	</script>
+	<!-- END JAVASCRIPTS -->
+
+	<!-- Modal -->
+	<div id="group-chat-modal" class="modal hide fade" tabindex="1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			<h3 id="myModalLabel1">Add people to group chat</h3>
+			<input type="text" placeholder="Name your conversation.." id="group-chat-name"/>
+			
+		</div>
+		<div class="modal-body span12" id="group-chat-user-list">
+			<div></div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true" id="cancel-current-group-chat">Cancel</button>
+			<button class="btn green" data-dismiss="modal" id="start-current-group-chat">Start</button>
+		</div>
+	</div>
+
+
+	</div>
+</body>
+<!-- END BODY -->
+</html>

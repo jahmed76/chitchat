@@ -1,0 +1,47 @@
+{
+  "name": "ChitChat",
+  "version": "1.0.0",
+  "description": "Secure Messaging Application",
+  "keywords": [
+    "secure",
+    "Node.js",
+    "private",
+    "encryption"
+  ],
+  "author": {
+    "name": "Jawad Ahmed",
+    "email": "11besejahmed@seecs.edu.pk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+
+  "engines": {
+    "node": ">= 0.10.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "~4.10.6",
+    "body-parser":"~1.10.0",
+    "cookie-parser":"~1.3.3",
+    "ejs":"~2.0.07",
+    "express-session":"~1.9.3",
+    "mongodb":"~1.4.26",
+    "mongojs":"~0.18.0",
+    "mongoskin":"~1.4.4",
+    "node-forge":"0.6.20",
+    "socket.io":"1.2.1" , 
+    "newrelic":"1.14.6"
+  },
+
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "scripts": {
+    "start": "supervisor server.js"
+  },
+  "main": "server.js"
+}
